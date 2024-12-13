@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1>Projeto Quiz Países e Capitais</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Sobre
 
-## About Laravel
+Este é um aplicativo de perguntas e respostas desenvolvido no curso de Laravel do professor João Ribeiro. O jogo testa seus conhecimentos sobre países e suas capitais.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Funcionalidades
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Escolha o número de perguntas entre 3 e 30.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Perguntas geradas aleatoriamente.
 
-## Learning Laravel
+- Correção automática de respostas.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Resultado final com porcentagem de acertos.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Tecnologias Utilizadas
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP 8.2
+- Laravel 11
+- Docker (como servidor de aplicação)
 
-## Laravel Sponsors
+## Estrutura Principal do Código
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- startGame(): Exibe a página inicial.
+- prepareGame(): Valida o número de perguntas e prepara o jogo.
+- game(): Exibe a pergunta atual.
+- answer(): Verifica a resposta do usuário.
+- nextQuestion(): Avança para a próxima pergunta ou exibe o resultado.
+- showResults(): Mostra o desempenho final do usuário.
 
-### Premium Partners
+## Função Importante
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- ajustarPreposicao(): Ajusta automaticamente as preposições antes dos nomes dos países conforme as regras da língua portuguesa.
 
-## Contributing
+## Como Configurar o Projeto
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Clone o repositório:
+- git clone https://github.com/LaylaNasc/countries_and_capitals-app.git
+cd countries_and_capitals-app
 
-## Code of Conduct
+### Instale as dependências:
+- composer install
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Configure o ambiente:
+Copie o arquivo .env.example para .env:
+- cp .env.example .env
+Configure seu banco de dados no arquivo .env.
 
-## Security Vulnerabilities
+### Gere a chave da aplicação:
+- php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Inicie o ambiente com Docker:
+- docker-compose up -d
 
+Acesse o aplicativo em http://localhost:8000.
+
+## Imagens do Projeto
+
+<img src="https://github.com/user-attachments/assets/ea644329-9320-4a27-8c5d-0704161b8f17" alt="telaDeLogin" width="300" heihth="200"> <br>
+<img src="https://github.com/user-attachments/assets/3c4da7a9-d5a0-48ee-8605-a747961092c7" alt="telaDeLogin" width="300" heihth="200"> <br>
+<img src="https://github.com/user-attachments/assets/b1841515-fe90-4bc0-aa67-f62a7d7cc10e" alt="telaDeLogin" width="300" heihth="200"> <br>
+<img src="https://github.com/user-attachments/assets/1ef6c202-7f23-4b55-9497-a726b6f8b7a8" alt="telaDeLogin" width="300" heihth="200"> <br>
+  
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
