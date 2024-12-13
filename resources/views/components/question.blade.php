@@ -2,5 +2,5 @@
     Pergunta: <span class="text-info fw-bolder">{{ $currentQuestion + 1 }} / {{ $totalQuestions }}</span>
 </div>
 <div class="text-center fs-3 mb-3">
-    QUAL É A CAPITAL DE {{ $country }} ?
+    Qual é a capital {{ $country }} ?
 </div>

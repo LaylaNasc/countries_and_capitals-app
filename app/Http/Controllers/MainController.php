@@ -50,6 +50,46 @@ class MainController extends Controller
         return redirect()->route('game');
     }
 
+    //ajustando a pergunta
+
+    private function ajustarPreposicao($pais)
+    {
+        // as regras gerais de preposição em português
+        $artigos_definidos = ['o', 'a', 'os', 'as'];
+    
+        // os países que precisam de artigos definidos
+        $paises_com_artigo = [
+            'Brasil' => 'do',
+            'Argentina' => 'da',
+            'Chile' => 'do',
+            'Peru' => 'do',
+            'França' => 'da',
+            'Itália' => 'da',
+            'México' => 'do',
+            'Japão' => 'do',
+            'Espanha' => 'da'
+        ];
+    
+        // países começando com palavras específicas
+        if (preg_match('/^(República|Estados|Ilhas|Principado|Reino|União)/i', $pais)) {
+            return "da $pais";
+        }
+    
+        // Verifica se o país tem artigo específico
+        if (array_key_exists($pais, $paises_com_artigo)) {
+            return "{$paises_com_artigo[$pais]} $pais";
+        }
+    
+        // Países que terminam com "a" provavelmente são femininos
+        if (preg_match('/a$/i', $pais) && !in_array(strtolower($pais), ['canadá', 'panamá'])) {
+            return "da $pais";
+        }
+    
+        return "de $pais";
+    }
+     
+
+
     private function prepareQuiz($total_questions)
     {
         $questions = [];
@@ -62,7 +102,7 @@ class MainController extends Controller
         $question_number = 1;
         foreach($indexes as $index){
             $question['questions_number'] = $question_number++;
-            $question['country'] = $this->app_data[$index]['country'];
+            $question['country'] = $this->ajustarPreposicao($this->app_data[$index]['country']);
             $question['correct_answer'] = $this->app_data[$index]['capital']; //respostas corretas
 
             //respostas erradas
